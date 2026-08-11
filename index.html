@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Local Business Rank Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Local Business Rank Tracker</h1>
+        <p>Monitor your local SEO performance in one place.</p>
+    </header>
+
+    <main>
+
+        <section class="card">
+
+            <h2>Add Business</h2>
+
+            <label for="businessName">Business Name</label>
+
+            <input
+                type="text"
+                id="businessName"
+                placeholder="Enter your business name"
+            >
+
+            <label for="keyword">Keyword</label>
+
+            <input
+                type="text"
+                id="keyword"
+                placeholder="Enter a keyword"
+            >
+
+            <button id="startButton">Start Tracking</button>
+
+        </section>
+
+        <section class="card">
+
+            <h2>Tracking Results</h2>
+
+            <div id="results">
+                 <p>Your ranking information will appear here.</p>
+            </div>
+
+            <div id="businessList"></div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

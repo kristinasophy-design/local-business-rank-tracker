@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 40px;
+    color: #1f2937;
+}
+
+header {
+    max-width: 900px;
+    margin: 0 auto 30px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #4b5563;
+    font-size: 18px;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#results {
+    padding: 15px;
+    background-color: #f9fafb;
+    border-radius: 6px;
+}
+
+#businessList {
+    margin-top: 20px;
+}
+
+.business-item {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.business-item h3 {
+    margin: 0 0 5px;
+}
+
+.business-item p {
+    margin: 0;
+    color: #4b5563;
+}
