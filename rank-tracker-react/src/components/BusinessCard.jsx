@@ -1,3 +1,4 @@
+import RankChange from "./RankChange";
 function BusinessCard({
   business,
   onEdit,
@@ -11,20 +12,27 @@ function BusinessCard({
       <p>{business.keyword}</p>
 
       {business.currentRank !== null ? (
-        <div>
-          <strong>Current Rank: #{business.currentRank}</strong>
+  <div>
+    <strong>Current Rank: #{business.currentRank}</strong>
 
-          {business.previousRank !== null && (
-            <p>Previous Rank: #{business.previousRank}</p>
-          )}
+    {business.previousRank !== null && (
+      <>
+        <p>Previous Rank: #{business.previousRank}</p>
 
-          {business.lastChecked && (
-            <p>Last Checked: {business.lastChecked}</p>
-          )}
-        </div>
-      ) : (
-        <p>Ranking has not been checked yet.</p>
-      )}
+        <RankChange
+          currentRank={business.currentRank}
+          previousRank={business.previousRank}
+        />
+      </>
+    )}
+
+    {business.lastChecked && (
+      <p>Last Checked: {business.lastChecked}</p>
+    )}
+  </div>
+) : (
+  <p>Ranking has not been checked yet.</p>
+)}
 
       <button onClick={() => onEdit(business)}>
         Edit
