@@ -34,6 +34,23 @@ function BusinessCard({
   <p>Ranking has not been checked yet.</p>
 )}
 
+{business.rankHistory && business.rankHistory.length > 0 && (
+  <div className="rank-history">
+    <h4>Rank History</h4>
+
+    <ul>
+      {business.rankHistory
+        .slice()
+        .reverse()
+        .map((entry, index) => (
+          <li key={index}>
+            #{entry.rank} — {entry.date}
+          </li>
+        ))}
+    </ul>
+  </div>
+)}
+
       <button onClick={() => onEdit(business)}>
         Edit
       </button>

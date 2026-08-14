@@ -54,13 +54,14 @@ function App() {
       setEditingId(null);
     } else {
       const newBusiness = {
-       id: Date.now(),
-       name: businessName,
-       keyword: keyword,
-       currentRank: null,
-       previousRank: null,
-       lastChecked: null,
-      };
+  id: Date.now(),
+  name: businessName,
+  keyword: keyword,
+  currentRank: null,
+  previousRank: null,
+  lastChecked: null,
+  rankHistory: [],
+};
 
       setBusinesses([...businesses, newBusiness]);
     }
@@ -71,14 +72,23 @@ function App() {
 
   function handleCheckRanking(id) {
   const demoRank = Math.floor(Math.random() * 20) + 1;
+  const checkedAt = new Date().toLocaleString();
 
   const updatedBusinesses = businesses.map((business) => {
     if (business.id === id) {
+      const history = business.rankHistory || [];
+
+      const newHistoryEntry = {
+        rank: demoRank,
+        date: checkedAt,
+      };
+
       return {
         ...business,
         previousRank: business.currentRank,
         currentRank: demoRank,
-        lastChecked: new Date().toLocaleString(),
+        lastChecked: checkedAt,
+        rankHistory: [...history, newHistoryEntry],
       };
     }
 
