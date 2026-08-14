@@ -88,6 +88,34 @@ function App() {
   setBusinesses(updatedBusinesses);
 }
 
+const totalBusinesses = businesses.length;
+
+const improvedCount = businesses.filter(
+  (business) =>
+    business.currentRank !== null &&
+    business.previousRank !== null &&
+    business.currentRank < business.previousRank
+).length;
+const droppedCount = businesses.filter(
+  (business) =>
+    business.currentRank !== null &&
+    business.previousRank !== null &&
+    business.currentRank > business.previousRank
+).length;
+
+const noChangeCount = businesses.filter(
+  (business) =>
+    business.currentRank !== null &&
+    business.previousRank !== null &&
+    business.currentRank === business.previousRank
+).length;
+
+const notCheckedCount = businesses.filter(
+  (business) => business.currentRank === null
+).length;
+
+const totalKeywords = businesses.length;
+
   return (
     <div>
       <h1>Local Business Rank Tracker</h1>
@@ -115,16 +143,36 @@ function App() {
   </div>
 
   <div className="stats">
-    <div className="stat-card">
-      <strong>{businesses.length}</strong>
-      <span>Businesses</span>
-    </div>
-
-    <div className="stat-card">
-      <strong>{businesses.length}</strong>
-      <span>Keywords</span>
-    </div>
+  <div className="stat-card">
+    <strong>{totalBusinesses}</strong>
+    <span>Businesses</span>
   </div>
+
+  <div className="stat-card">
+    <strong>{totalKeywords}</strong>
+    <span>Keywords</span>
+  </div>
+
+  <div className="stat-card">
+    <strong>{improvedCount}</strong>
+    <span>Improved</span>
+  </div>
+
+  <div className="stat-card">
+    <strong>{droppedCount}</strong>
+    <span>Dropped</span>
+  </div>
+
+  <div className="stat-card">
+    <strong>{noChangeCount}</strong>
+    <span>No Change</span>
+  </div>
+
+  <div className="stat-card">
+    <strong>{notCheckedCount}</strong>
+    <span>Not Checked</span>
+  </div>
+</div>
 </div>
 
       {businesses.length === 0 ? (
