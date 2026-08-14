@@ -1,4 +1,5 @@
 import RankChange from "./RankChange";
+import RankChart from "./RankChart";
 function BusinessCard({
   business,
   onEdit,
@@ -10,6 +11,7 @@ function BusinessCard({
       <h3>{business.name}</h3>
 
       <p>{business.keyword}</p>
+      <RankChart rankHistory={business.rankHistory} />
 
       {business.currentRank !== null ? (
   <div>
