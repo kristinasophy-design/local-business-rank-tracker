@@ -11,6 +11,9 @@ function BusinessCard({
       <h3>{business.name}</h3>
 
       <p>{business.keyword}</p>
+      <p>
+  📍 {business.location || "Location not set"}
+</p>
       <RankChart rankHistory={business.rankHistory} />
 
       {business.currentRank !== null ? (

@@ -5,6 +5,7 @@ import BusinessCard from "./components/BusinessCard";
 function App() {
   const [businessName, setBusinessName] = useState("");
   const [keyword, setKeyword] = useState("");
+  const [location, setLocation] = useState("");
   const [editingId, setEditingId] = useState(null);
 
   const [businesses, setBusinesses] = useState(() => {
@@ -26,18 +27,19 @@ function App() {
   }
 
   function handleEdit(business) {
-    setBusinessName(business.name);
-    setKeyword(business.keyword);
-    setEditingId(business.id);
-  }
+  setBusinessName(business.name);
+  setKeyword(business.keyword);
+  setLocation(business.location || "");
+  setEditingId(business.id);
+}
 
   function handleTracking(event) {
     event.preventDefault();
 
-    if (!businessName || !keyword) {
-      alert("Please enter both the business name and keyword.");
-      return;
-    }
+    if (!businessName || !keyword || !location) {
+  alert("Please enter the business name, keyword, and location.");
+  return;
+}
 
     if (editingId !== null) {
       const updatedBusinesses = businesses.map((business) =>
@@ -46,6 +48,7 @@ function App() {
               ...business,
               name: businessName,
               keyword: keyword,
+              location: location,
             }
           : business
       );
@@ -57,6 +60,7 @@ function App() {
   id: Date.now(),
   name: businessName,
   keyword: keyword,
+  location: location,
   currentRank: null,
   previousRank: null,
   lastChecked: null,
@@ -68,6 +72,7 @@ function App() {
 
     setBusinessName("");
     setKeyword("");
+    setLocation("");
   }
 
   function handleCheckRanking(id) {
@@ -138,11 +143,13 @@ const totalKeywords = businesses.length;
       <TrackingForm
         businessName={businessName}
         keyword={keyword}
+        location={location}
         setBusinessName={setBusinessName}
         setKeyword={setKeyword}
+        setLocation={setLocation}
         handleTracking={handleTracking}
         editingId={editingId}
-      />
+/>
 
       <hr />
 

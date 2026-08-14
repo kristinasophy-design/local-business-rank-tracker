@@ -1,8 +1,10 @@
 function TrackingForm({
   businessName,
   keyword,
+  location,
   setBusinessName,
   setKeyword,
+  setLocation,
   handleTracking,
   editingId,
 }) {
@@ -23,6 +25,19 @@ function TrackingForm({
         value={keyword}
         onChange={(event) => setKeyword(event.target.value)}
       />
+      <div>
+  <label>Location</label>
+  <br />
+
+  <input
+    type="text"
+    value={location}
+    onChange={(event) => setLocation(event.target.value)}
+    placeholder="e.g. Mombasa"
+  />
+</div>
+
+<br />
 
       <button type="submit">
         {editingId !== null ? "Update Business" : "Start Tracking"}
